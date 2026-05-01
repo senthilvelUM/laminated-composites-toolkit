@@ -57,6 +57,61 @@ Every runner saves its complete printed transcript to
 `results/<runner_name>/output.md` and its figures alongside it as
 `fig01.png`, `fig02.png`, … One folder per analysis; nothing is mixed.
 
+## The main runners
+
+Two runners sit at the centre of the package and are the entry points
+most readers should start with. They exercise the `ply/` and `laminate/`
+packages end-to-end on small, transparent inputs and print every
+intermediate quantity (transformation matrices, $[A]$, $[B]$, $[D]$,
+through-thickness strains, stresses, safety factors).
+
+### `run_ply.py` — single-ply mechanics
+
+A single IM7/8552 ply at $\theta = 30°$ and 0.2 mm thickness is built,
+its full set of derived quantities is computed and printed
+($\bar Q$, $\bar S$, transformation matrices $T_\sigma$ and
+$T_\varepsilon$, off-axis engineering moduli), and a representative
+applied stress is transformed between the laminate $(x, y)$ and material
+$(1, 2)$ frames. The script closes with a Tsai–Wu safety-factor
+evaluation at the applied stress state and a four-panel sweep of the
+engineering moduli over $\theta \in [-90°, 90°]$:
+
+![Off-axis engineering properties](docs/run_ply_off_axis_properties.png)
+
+The four panels make the off-axis transformation machinery tangible at a
+glance: $E_x(\theta)$ and $E_y(\theta)$ peak when the fibres align with
+the loading direction, $G_{xy}(\theta)$ peaks at $\pm 45°$, and
+$\nu_{xy}(\theta)$ exhibits the classic non-monotonic behaviour with
+values that can exceed the isotropic upper bound of 0.5 between
+$0°$ and $\sim 30°$. The script is the simplest possible thing that
+fully exercises the ply-level API; everything later in the package
+builds on it.
+
+### `run_laminate.py` — multi-ply laminate analysis
+
+A four-ply $[0/90/90/0]$ cross-ply IM7/8552 laminate is built, its
+$[A]$, $[B]$, $[D]$ and engineering moduli are reported, and it is
+loaded with a small bending moment $M_x$. The runner solves the CLT
+constitutive system for the mid-surface strains and curvatures, then
+walks through the thickness reporting strain, stress in the laminate
+and material frames, and the Tsai–Wu safety factor at every ply
+interface and mid-ply.
+
+The figure below shows $\sigma_x(z)$ for this laminate. Strain (not
+shown) is linear and continuous through the thickness; stress is
+**piecewise discontinuous**, with jumps at every interface where the
+ply orientation changes. The outer $0°$ plies carry stresses an order
+of magnitude larger than the inner $90°$ plies — the chapter explains
+why, and this single plot makes it visible.
+
+![Stress through the thickness of a [0/90/90/0] laminate](docs/run_laminate_sigma_x_through_thickness.png)
+
+The runner also locates $S_f^{\min}$ and identifies the dominant failure
+mode at the critical $z$. A single top-of-file toggle
+(`failure_criterion = "TsaiWu"` | `"MaxStress"` | `"Hashin"`) re-runs
+the entire through-thickness analysis under any of the three criteria
+without further edits.
+
 ## A walk through the CLT chapter, in code
 
 The three worked examples in the CLT chapter are self-contained Python
@@ -146,21 +201,11 @@ This is the same pattern, at the same level of detail, that the full
 toolkit reuses for FSDT beams and for Kirchhoff and Mindlin plates in
 the chapters not included here.
 
-## Off-axis behaviour of a single ply
-
-A small but pedagogically important plot: `run_ply.py` produces the
-classic four-panel sweep of the engineering moduli of a unidirectional
-ply as a function of fibre angle. It makes the off-axis transformation
-machinery $T_\sigma$, $T_\varepsilon$, $\bar S$ tangible at a glance.
-
-![Off-axis engineering properties](docs/run_ply_off_axis_properties.png)
-
 ## Repository layout
 
 ```
 python_toolkit_intro/
 ├── README.md                                       ← you are here
-├── CLAUDE.md                                       ← project conventions (also serves as a reference manual)
 ├── requirements.txt                                ← numpy, matplotlib, pyyaml
 │
 ├── materials/                                      ← YAML material files (CFRP, GFRP, foam)
@@ -224,8 +269,10 @@ The full toolkit that accompanies the complete book additionally includes:
   panel demonstration);
 - Kirchhoff / MZC plate FE (static + vibration);
 - Mindlin / FSDT plate FE (static + vibration, with a clean
-  shear-locking demonstration via the `shear_integration` toggle);
-- the legacy Matlab reference implementation that the Python toolkit
-  was converted from.
+  shear-locking demonstration via the `shear_integration` toggle).
 
 These modules follow the same conventions used here.
+
+## License
+
+Released under the MIT License — see [LICENSE](LICENSE).
