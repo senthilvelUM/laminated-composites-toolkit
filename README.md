@@ -1,7 +1,8 @@
-# Companion Python Toolkit — *Composite Structures: Theory, Computation, and Design*
+# Companion Python Toolkit — *Analysis of Laminated Composite Structures: Modeling, Simulation, and Optimization*
 
-This repository is the Python companion to the textbook *Composite Structures:
-Theory, Computation, and Design*. It is intended to be read alongside the text
+This repository is the Python companion to the textbook *Analysis of
+Laminated Composite Structures: Modeling, Simulation, and Optimization*
+by Senthil S. Vel and Serge R. Maalouf. It is intended to be read alongside the text
 so that a reader can move freely between a derivation in the chapter and the
 matching code that reproduces every numerical value, table, and figure.
 
