@@ -198,7 +198,7 @@ pattern — mesh → BCs → loads → assemble $[K]$ → solve $[K]\{D\} = \{F\
 → post-process — and then performs through-thickness CLT analysis at the
 critical section to locate $S_f^{\min}$ and the dominant failure mode.
 
-<img src="docs/run_beam_fe_deflection.png" alt="Beam deflection under point load" width="80%" />
+<img src="docs/run_beam_fe_deflection.png" alt="Beam deflection under point load" width="70%" />
 
 This is the same pattern, at the same level of detail, that the full
 toolkit reuses for FSDT beams and for Kirchhoff and Mindlin plates in
