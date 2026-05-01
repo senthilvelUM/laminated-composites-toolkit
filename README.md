@@ -76,7 +76,7 @@ $(1, 2)$ frames. The script closes with a Tsai–Wu safety-factor
 evaluation at the applied stress state and a four-panel sweep of the
 engineering moduli over $\theta \in [-90°, 90°]$:
 
-![Off-axis engineering properties](docs/run_ply_off_axis_properties.png)
+<img src="docs/run_ply_off_axis_properties.png" alt="Off-axis engineering properties" width="80%" />
 
 The four panels make the off-axis transformation machinery tangible at a
 glance: $E_x(\theta)$ and $E_y(\theta)$ peak when the fibres align with
@@ -104,7 +104,7 @@ ply orientation changes. The outer $0°$ plies carry stresses an order
 of magnitude larger than the inner $90°$ plies — the chapter explains
 why, and this single plot makes it visible.
 
-![Stress through the thickness of a [0/90/90/0] laminate](docs/run_laminate_sigma_x_through_thickness.png)
+<img src="docs/run_laminate_sigma_x_through_thickness.png" alt="Stress through the thickness of a [0/90/90/0] laminate" width="80%" />
 
 The runner also locates $S_f^{\min}$ and identifies the dominant failure
 mode at the critical $z$. A single top-of-file toggle
@@ -144,7 +144,7 @@ discrete angles are overlaid (orange dots); only $\theta = 15°$ and
 $\theta = 30°$ are usable, and only $\theta = 30°$ comes within 10% of
 the continuous optimum.
 
-![Sf vs theta for the tube design](docs/clt_example_3_tube_Sf_vs_angle.png)
+<img src="docs/clt_example_3_tube_Sf_vs_angle.png" alt="Sf vs theta for the tube design" width="80%" />
 
 This single plot motivates the entire stacking-sequence-optimisation
 chapter that follows: continuous design space → discrete design space
@@ -165,7 +165,7 @@ the histogram below is the resulting distribution of $\min S_f$ values.
 Almost all stackings are unsafe ($S_f < 1$); the global optimum is the
 single red line at $S_f = 1.49$.
 
-![Sf histogram from brute force](docs/run_optimization_brute_force_Sf_histogram.png)
+<img src="docs/run_optimization_brute_force_Sf_histogram.png" alt="Sf histogram from brute force" width="80%" />
 
 ### Integer-coded GA at $N = 8$ ($4 \times 10^8$ stackings, < 1 s)
 
@@ -176,7 +176,7 @@ convergence curve below shows the best-of-generation safety factor (red)
 climbing in clear discrete jumps as the population discovers better
 basins, alongside the population-mean (blue):
 
-![GA convergence](docs/run_optimization_GA_convergence.png)
+<img src="docs/run_optimization_GA_convergence.png" alt="GA convergence" width="80%" />
 
 The GA hyperparameters (`pop_size`, `crossover_rate`, `mutation_rate`,
 `tournament_k`, `n_elite`, `seed`) are exposed at the top of the runner,
@@ -195,7 +195,7 @@ pattern — mesh → BCs → loads → assemble $[K]$ → solve $[K]\{D\} = \{F\
 → post-process — and then performs through-thickness CLT analysis at the
 critical section to locate $S_f^{\min}$ and the dominant failure mode.
 
-![Beam deflection under point load](docs/run_beam_fe_deflection.png)
+<img src="docs/run_beam_fe_deflection.png" alt="Beam deflection under point load" width="80%" />
 
 This is the same pattern, at the same level of detail, that the full
 toolkit reuses for FSDT beams and for Kirchhoff and Mindlin plates in
