@@ -76,7 +76,7 @@ $(1, 2)$ frames. The script closes with a Tsai–Wu safety-factor
 evaluation at the applied stress state and a four-panel sweep of the
 engineering moduli over $\theta \in [-90°, 90°]$:
 
-<img src="docs/run_ply_off_axis_properties.png" alt="Off-axis engineering properties" width="100%" />
+<img src="docs/run_ply_off_axis_properties.png" alt="Off-axis engineering properties" width="95%" />
 
 The four panels make the off-axis transformation machinery tangible at a
 glance: $E_x(\theta)$ and $E_y(\theta)$ peak when the fibres align with
@@ -104,7 +104,7 @@ ply orientation changes. The outer $0°$ plies carry stresses an order
 of magnitude larger than the inner $90°$ plies — the chapter explains
 why, and this single plot makes it visible.
 
-<img src="docs/run_laminate_sigma_x_through_thickness.png" alt="Stress through the thickness of a [0/90/90/0] laminate" width="60%" />
+<img src="docs/run_laminate_sigma_x_through_thickness.png" alt="Stress through the thickness of a [0/90/90/0] laminate" width="70%" />
 
 The runner also locates $S_f^{\min}$ and identifies the dominant failure
 mode at the critical $z$. A single top-of-file toggle
