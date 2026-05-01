@@ -168,7 +168,7 @@ the histogram below is the resulting distribution of $\min S_f$ values.
 Almost all stackings are unsafe ($S_f < 1$); the global optimum is the
 single red line at $S_f = 1.49$.
 
-<img src="docs/run_optimization_brute_force_Sf_histogram.png" alt="Sf histogram from brute force" width="80%" />
+<img src="docs/run_optimization_brute_force_Sf_histogram.png" alt="Sf histogram from brute force" width="70%" />
 
 ### Integer-coded GA at $N = 8$ ($4 \times 10^8$ stackings, < 1 s)
 
@@ -179,7 +179,7 @@ convergence curve below shows the best-of-generation safety factor (red)
 climbing in clear discrete jumps as the population discovers better
 basins, alongside the population-mean (blue):
 
-<img src="docs/run_optimization_GA_convergence.png" alt="GA convergence" width="80%" />
+<img src="docs/run_optimization_GA_convergence.png" alt="GA convergence" width="70%" />
 
 The GA hyperparameters (`pop_size`, `crossover_rate`, `mutation_rate`,
 `tournament_k`, `n_elite`, `seed`) are exposed at the top of the runner,
