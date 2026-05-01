@@ -9,7 +9,7 @@ so that a reader can move freely between a derivation in the chapter and the
 matching code that reproduces every numerical value, table, and figure.
 
 The package focuses on Part I of the book (lamina mechanics, classical
-lamination theory, failure analysis, stacking-sequence optimisation, and a
+lamination theory, failure analysis, stacking-sequence optimization, and a
 first finite-element example). The full toolkit that ships with the complete
 book also covers progressive-failure analysis, FSDT/Timoshenko beams, and
 Kirchhoff and Mindlin plate FE.
@@ -36,7 +36,7 @@ Kirchhoff and Mindlin plate FE.
    (`"TsaiWu" | "MaxStress" | "Hashin"`) is exposed at the top of every
    laminate-level runner and threaded through the entire pipeline, so the
    student can re-run a worked example under a different criterion in one
-   keystroke. The optimisation runner exposes its GA hyperparameters with
+   keystroke. The optimization runner exposes its GA hyperparameters with
    inline literature ranges, turning the script into a controlled experiment
    the student can vary.
 
@@ -62,7 +62,7 @@ Every runner saves its complete printed transcript to
 
 ## The main runners
 
-Two runners sit at the centre of the package and are the entry points
+Two runners sit at the center of the package and are the entry points
 most readers should start with. They exercise the `ply/` and `laminate/`
 packages end-to-end on small, transparent inputs and print every
 intermediate quantity (transformation matrices, $[A]$, $[B]$, $[D]$,
@@ -82,9 +82,9 @@ engineering moduli over $\theta \in [-90°, 90°]$:
 <img src="docs/run_ply_off_axis_properties.png" alt="Off-axis engineering properties" width="90%" />
 
 The four panels make the off-axis transformation machinery tangible at a
-glance: $E_x(\theta)$ and $E_y(\theta)$ peak when the fibres align with
+glance: $E_x(\theta)$ and $E_y(\theta)$ peak when the fibers align with
 the loading direction, $G_{xy}(\theta)$ peaks at $\pm 45°$, and
-$\nu_{xy}(\theta)$ exhibits the classic non-monotonic behaviour with
+$\nu_{xy}(\theta)$ exhibits the classic non-monotonic behavior with
 values that can exceed the isotropic upper bound of 0.5 between
 $0°$ and $\sim 30°$. The script is the simplest possible thing that
 fully exercises the ply-level API; everything later in the package
@@ -141,7 +141,7 @@ two are intended to be read side by side.
 
 A composite tube under combined axial load and torque is designed for
 maximum first-ply Tsai–Wu safety factor. The figure below sweeps the
-fibre angle $\theta$ in a $[\theta/-\theta]_S$ tube and locates the
+fiber angle $\theta$ in a $[\theta/-\theta]_S$ tube and locates the
 continuous optimum at $\theta \approx 26°$ (green star). Four candidate
 discrete angles are overlaid (orange dots); only $\theta = 15°$ and
 $\theta = 30°$ are usable, and only $\theta = 30°$ comes within 10% of
@@ -149,13 +149,13 @@ the continuous optimum.
 
 <img src="docs/clt_example_3_tube_Sf_vs_angle.png" alt="Sf vs theta for the tube design" width="80%" />
 
-This single plot motivates the entire stacking-sequence-optimisation
+This single plot motivates the entire stacking-sequence-optimization
 chapter that follows: continuous design space → discrete design space
 → combinatorial search.
 
 ## Optimisation: brute force vs genetic algorithm, side by side
 
-The optimisation chapter pairs two runners that solve the **same**
+The optimization chapter pairs two runners that solve the **same**
 problem — maximise $\min S_f$ over a discrete angle set — at two
 problem sizes. The pedagogical point is direct: brute force gives the
 ground truth where it is feasible, and a small integer-coded GA matches
@@ -214,15 +214,15 @@ python_toolkit_intro/
 ├── materials/                                      ← YAML material files (CFRP, GFRP, foam)
 ├── ply/                                            ← create_ply, three failure criteria, mode diagnostic, off-axis plots
 ├── laminate/                                       ← create_laminate, ABD, through-thickness analysis
-├── optimization/                                   ← stacking-sequence optimisation: fast evaluator, brute force, GA
+├── optimization/                                   ← stacking-sequence optimization: fast evaluator, brute force, GA
 ├── fe_beams_clt/                                   ← Euler–Bernoulli (CLT) beam FE package
 ├── common/                                         ← shared display + generic FE machinery (assemble, solve, …)
 │
 ├── run_ply.py                                      ← single-ply analysis
 ├── run_laminate.py                                 ← multi-ply laminate analysis
 ├── run_laminated_beam_fe_static.py                 ← 2-DOF EB beam FE example
-├── run_stacking_optimization_brute_force.py        ← stacking-sequence optimisation, brute force
-├── run_stacking_optimization_genetic_algorithm.py  ← stacking-sequence optimisation, integer-coded GA
+├── run_stacking_optimization_brute_force.py        ← stacking-sequence optimization, brute force
+├── run_stacking_optimization_genetic_algorithm.py  ← stacking-sequence optimization, integer-coded GA
 │
 ├── worked_examples/                                ← Python twins of the chapter's worked examples
 │   ├── CLT_Example_1.py                            ←   strain and stress through a [45/0/-45] laminate
@@ -246,7 +246,7 @@ python_toolkit_intro/
 - **Failure-criterion toggle** (`"TsaiWu"` | `"MaxStress"` | `"Hashin"`)
   is exposed at the top of every laminate-level runner and dispatched
   through `evaluate_strains_stresses_Sf`, `find_min_safety_factor`,
-  `plot_through_thickness_variations`, and the optimisation evaluators.
+  `plot_through_thickness_variations`, and the optimization evaluators.
   The plot axis labels track the choice.
 
 ## Materials shipped
