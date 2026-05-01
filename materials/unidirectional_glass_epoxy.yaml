@@ -1,0 +1,25 @@
+# Representative properties of a unidirectional glass/epoxy composite.
+# All values in SI units: Pa for moduli and strengths, kg/m^3 for density.
+# Directions 1 and 2 are the principal material directions (1 = fiber, 2 = transverse).
+# Ply thickness is not a material property — it is specified per ply in create_ply().
+
+name: Unidirectional Glass/Epoxy
+type: unidirectional
+
+# Physical properties
+rho: 1970.0       # density [kg/m^3]
+
+# Elastic properties
+E1:    41.0e9     # Young's modulus in the 1-direction [Pa]
+E2:    10.4e9     # Young's modulus in the 2-direction [Pa]
+nu12:   0.28      # major Poisson's ratio [-]
+G12:    4.3e9     # in-plane shear modulus [Pa]
+G13:    4.3e9     # transverse shear modulus in the 1-3 plane [Pa]  (~ G12 for UD)
+G23:    3.5e9     # transverse shear modulus in the 2-3 plane [Pa]  (matrix-dominated)
+
+# Strength properties (not specified in legacy file — fill in before using)
+F1t: 0.0          # tensile strength in the 1-direction [Pa]
+F1c: 0.0          # compressive strength in the 1-direction [Pa]
+F2t: 0.0          # tensile strength in the 2-direction [Pa]
+F2c: 0.0          # compressive strength in the 2-direction [Pa]
+F6:  0.0          # in-plane shear strength in the 1-2 plane [Pa]

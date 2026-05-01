@@ -1,0 +1,25 @@
+# Representative properties of a woven fabric-reinforced carbon/epoxy composite.
+# All values in SI units: Pa for moduli and strengths, kg/m^3 for density.
+# Directions 1 and 2 are the principal material directions (warp and fill).
+# Ply thickness is not a material property — it is specified per ply in create_ply().
+
+name: Fabric Carbon/Epoxy
+type: fabric
+
+# Physical properties
+rho: 1600.0       # density [kg/m^3]
+
+# Elastic properties
+E1:    77.0e9     # Young's modulus in the 1-direction [Pa]
+E2:    75.0e9     # Young's modulus in the 2-direction [Pa]
+nu12:   0.06      # major Poisson's ratio [-]
+G12:    6.5e9     # in-plane shear modulus [Pa]
+G13:    4.0e9     # transverse shear modulus in the 1-3 plane [Pa]  (matrix-dominated)
+G23:    4.0e9     # transverse shear modulus in the 2-3 plane [Pa]  (matrix-dominated)
+
+# Strength properties
+F1t:  963.0e6     # tensile strength in the 1-direction [Pa]
+F1c:  900.0e6     # compressive strength in the 1-direction [Pa]
+F2t:  856.0e6     # tensile strength in the 2-direction [Pa]
+F2c:  900.0e6     # compressive strength in the 2-direction [Pa]
+F6:    71.0e6     # in-plane shear strength in the 1-2 plane [Pa]

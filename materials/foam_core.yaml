@@ -1,0 +1,25 @@
+# Representative properties of a closed-cell rigid PMI foam core
+# (e.g. Rohacell 71 IG class).
+# All values in SI units: Pa for moduli and strengths, kg/m^3 for density.
+# Isotropic material: E1 = E2, G12 = G13 = G23.
+
+name: PMI Foam Core (Rohacell 71 IG)
+type: isotropic_foam
+
+# Physical properties
+rho: 75.0         # density [kg/m^3]
+
+# Elastic properties (isotropic: same in all directions)
+E1:    92.0e6     # Young's modulus in the 1-direction [Pa]
+E2:    92.0e6     # Young's modulus in the 2-direction [Pa]
+nu12:   0.33      # Poisson's ratio [-]
+G12:   29.0e6     # in-plane shear modulus [Pa]
+G13:   29.0e6     # transverse shear modulus in the 1-3 plane [Pa]
+G23:   29.0e6     # transverse shear modulus in the 2-3 plane [Pa]
+
+# Strength properties (isotropic; representative of PMI foam)
+F1t:    1.7e6     # tensile strength in the 1-direction [Pa]
+F1c:    1.5e6     # compressive strength in the 1-direction [Pa]
+F2t:    1.7e6     # tensile strength in the 2-direction [Pa]
+F2c:    1.5e6     # compressive strength in the 2-direction [Pa]
+F6:     1.1e6     # shear strength in the 1-2 plane [Pa]
