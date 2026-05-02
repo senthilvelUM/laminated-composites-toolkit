@@ -68,6 +68,16 @@ packages end-to-end on small, transparent inputs and print every
 intermediate quantity (transformation matrices, $[A]$, $[B]$, $[D]$,
 through-thickness strains, stresses, safety factors).
 
+The concept map below (reproduced from the CLT chapter) is the road
+the two runners walk. `run_ply.py` exercises the right half — single-ply
+mechanics, $[Q]$, $[\bar Q]$, $T_\sigma$, $T_\varepsilon$, and
+transformations between material and global coordinates. `run_laminate.py`
+exercises the full diagram — adding the $[ABD]$ assembly, the $\{N, M\}$
+load resultants, mid-surface strains and curvatures, through-thickness
+stresses, and the first-ply safety factor.
+
+<img src="docs/clt_concept_map.png" alt="CLT analysis pipeline: mid-surface kinematics, strains and stresses in global and material coordinates, [ABD] resultants, safety factor" width="100%" />
+
 ### `run_ply.py` — single-ply mechanics
 
 A single IM7/8552 ply at $\theta = 30°$ and 0.2 mm thickness is built,
@@ -139,13 +149,19 @@ two are intended to be read side by side.
 
 ### Example 3.3 — Stacking-sequence design of a thin-walled tube
 
-A composite tube under combined axial load and torque is designed for
-maximum first-ply Tsai–Wu safety factor. The figure below sweeps the
-fiber angle $\theta$ in a $[\theta/-\theta]_S$ tube and locates the
-continuous optimum at $\theta \approx 26°$ (green star). Four candidate
-discrete angles are overlaid (orange dots); only $\theta = 15°$ and
-$\theta = 30°$ are usable, and only $\theta = 30°$ comes within 10% of
-the continuous optimum.
+A composite tube of radius $R$ and wall thickness $H$ is loaded by an
+axial force $P$ and a torque $T$. Unrolled, the wall is a
+$[\theta/-\theta]_S$ laminate seeing combined in-plane resultants
+$N_x$ (from $P$) and $N_{xy}$ (from $T$); the design problem is to
+choose $\theta$ that maximizes the first-ply Tsai–Wu safety factor.
+
+<img src="docs/clt_tube_schematic.png" alt="Composite tube under combined axial load and torque, with the laminate detail showing the off-axis angle and in-plane stress resultants" width="70%" />
+
+The figure below sweeps $\theta$ continuously over $[0°, 90°]$ and
+locates the continuous optimum at $\theta \approx 26°$ (green star).
+Four candidate discrete angles are overlaid (orange dots); only
+$\theta = 15°$ and $\theta = 30°$ are usable, and only $\theta = 30°$
+comes within 10% of the continuous optimum.
 
 <img src="docs/clt_example_3_tube_Sf_vs_angle.png" alt="Sf vs theta for the tube design" width="80%" />
 
