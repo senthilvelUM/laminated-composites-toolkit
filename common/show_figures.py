@@ -29,8 +29,13 @@ def show_figures():
     """Call plt.show() only if the active matplotlib backend is interactive.
 
     Pedagogically: "show all open figures, but only if the runtime can
-    actually display them."
+    actually display them."  On a non-interactive backend, prints a
+    one-line note so the user knows figures were saved to disk but not
+    displayed on screen.
     """
-    backend = matplotlib.get_backend().lower()
-    if backend not in _NON_INTERACTIVE_BACKENDS:
+    backend = matplotlib.get_backend()
+    if backend.lower() not in _NON_INTERACTIVE_BACKENDS:
         plt.show()
+    else:
+        print(f"\nNote: matplotlib backend '{backend}' is non-interactive; "
+              f"figures were saved to disk but not displayed on screen.")
