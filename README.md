@@ -306,7 +306,7 @@ laminated-composites-toolkit/
 
 ## Material library
 
-The toolkit ships with a small library of YAML material files covering the composite classes used in the textbook's worked examples:
+The toolkit ships with a small library of material files covering the composite classes used in the textbook's worked examples:
 
 - `unidirectional_carbon_epoxy` (IM7/8552 properties)
 - `unidirectional_glass_epoxy`
