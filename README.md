@@ -235,21 +235,21 @@ curve.
 ## A first finite-element example
 
 `run_laminated_beam_fe_static.py` is the gentlest entry into the FE
-chapters of the book: a symmetric `[45/0/0/45]` laminate, two
-Euler–Bernoulli (CLT) beam elements, two DOFs per node ($v$, $\phi$),
-cubic-Hermite shape functions, fixed–fixed boundary conditions, and a
-concentrated mid-span load. The runner walks through the canonical FE
-pattern — mesh → BCs → loads → assemble $[K]$ → solve $[K]\{D\} = \{F\}$
-→ post-process — and then performs through-thickness CLT analysis at the
-critical section to locate $S_f^{\min}$ and the dominant failure mode.
+chapters of the book — a deliberate single-runner introduction to the
+same FE pattern that the full toolkit extends to FSDT beams and to
+Kirchhoff and Mindlin plates (static and vibration). The example uses
+a symmetric `[45/0/0/45]` laminate, two Euler–Bernoulli (CLT) beam
+elements, two DOFs per node ($v$, $\phi$), cubic-Hermite shape
+functions, fixed–fixed boundary conditions, and a concentrated
+mid-span load. The runner walks through the canonical FE pattern —
+mesh → BCs → loads → assemble $[K]$ → solve $[K]\{D\} = \{F\}$ →
+post-process — and then performs through-thickness CLT analysis at
+the critical section to locate $S_f^{\min}$ and the dominant failure
+mode.
 
 <p align="center">
   <img src="docs/run_beam_fe_deflection.png" alt="Beam deflection under point load" width="70%" />
 </p>
-
-This is the same pattern, at the same level of detail, that the full
-toolkit reuses for FSDT beams and for Kirchhoff and Mindlin plates in
-the chapters not included here.
 
 ## Repository layout
 
