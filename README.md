@@ -179,10 +179,10 @@ This single plot motivates the entire stacking-sequence-optimization
 chapter that follows: continuous design space → discrete design space
 → combinatorial search.
 
-## Optimisation: brute force vs genetic algorithm, side by side
+## Optimization: brute force vs genetic algorithm, side by side
 
 The optimization chapter pairs two runners that solve the **same**
-problem — maximise $\min S_f$ over a discrete angle set — at two
+problem — maximize $\min S_f$ over a discrete angle set — at two
 problem sizes. The pedagogical point is direct: brute force gives the
 ground truth where it is feasible, and a small integer-coded GA matches
 it at low $N$ and survives at high $N$.
