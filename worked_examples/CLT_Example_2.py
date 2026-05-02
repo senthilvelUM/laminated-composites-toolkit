@@ -1,4 +1,4 @@
-"""Example 3.2 -- [ABD] and [abd] matrices for the [0/90]_S and [90/0]_S
+"""Example 4.2 -- [ABD] and [abd] matrices for the [0/90]_S and [90/0]_S
 cross-ply laminates.
 
 Two four-ply IM7/8552 carbon/epoxy laminates, each ply 0.2 mm thick:
@@ -22,7 +22,7 @@ from laminate import *
 
 results_file = start_results_file(
     __file__,
-    "Example 3.2 -- [ABD] and [abd] matrices for the [0/90]_S and [90/0]_S laminates",
+    "Example 4.2 -- [ABD] and [abd] matrices for the [0/90]_S and [90/0]_S laminates",
 )
 
 # --- Shared parameters ---

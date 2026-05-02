@@ -1,4 +1,4 @@
-"""Example 3.1 -- Stress distribution through the thickness of a [45/0/-45]
+"""Example 4.1 -- Stress distribution through the thickness of a [45/0/-45]
 three-ply IM7/8552 carbon/epoxy laminate (h = 0.2 mm per ply, H = 0.6 mm)
 under prescribed mid-surface strain and curvature
 
@@ -20,7 +20,7 @@ from laminate import *
 
 results_file = start_results_file(
     __file__,
-    "Example 3.1 -- Stress distribution through the thickness of a [45/0/-45] laminate",
+    "Example 4.1 -- Stress distribution through the thickness of a [45/0/-45] laminate",
 )
 
 # --- Define the laminate ---

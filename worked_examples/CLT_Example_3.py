@@ -1,4 +1,4 @@
-"""Example 3.3 -- Design of a thin-walled [theta/-theta]_S laminated tube
+"""Example 4.3 -- Design of a thin-walled [theta/-theta]_S laminated tube
 under combined axial force and torque.
 
 Tube of mean radius R = 50 mm, length L = 0.5 m, four-ply IM7/8552 wall
@@ -25,7 +25,7 @@ from laminate import *
 
 results_file = start_results_file(
     __file__,
-    "Example 3.3 -- Design of a thin-walled [theta/-theta]_S laminated tube",
+    "Example 4.3 -- Design of a thin-walled [theta/-theta]_S laminated tube",
 )
 
 # --- Tube geometry and applied loads ---

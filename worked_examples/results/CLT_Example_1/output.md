@@ -1,4 +1,4 @@
-# Example 3.1 -- Stress distribution through the thickness of a [45/0/-45] laminate
+# Example 4.1 -- Stress distribution through the thickness of a [45/0/-45] laminate
 
 ```
 Laminate H = 0.600 mm  (3 plies of 0.200 mm)
