@@ -10,6 +10,10 @@ It is intended to be read alongside the text
 so that a reader can move freely between a derivation in the chapter and the
 matching code that reproduces every numerical value, table, and figure.
 
+Together, the textbook and the toolkit close the loop from theory to
+implementation to design — readers derive the governing equations,
+then compute, visualize, and optimize laminated structures.
+
 The package focuses on Part I of the book (lamina mechanics, classical
 lamination theory, failure analysis, stacking-sequence optimization, and a
 first finite-element example). The full toolkit that ships with the complete
