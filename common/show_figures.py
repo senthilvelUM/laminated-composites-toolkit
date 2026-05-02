@@ -37,5 +37,6 @@ def show_figures():
     if backend.lower() not in _NON_INTERACTIVE_BACKENDS:
         plt.show()
     else:
-        print(f"\nNote: matplotlib backend '{backend}' is non-interactive; "
-              f"figures were saved to disk but not displayed on screen.")
+        print(f"\nNote: Figures were saved to disk but not displayed on screen "
+              f"because the matplotlib backend on your terminal ('{backend}') "
+              f"is non-interactive.\n")
