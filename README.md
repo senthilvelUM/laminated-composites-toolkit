@@ -17,16 +17,16 @@ book also covers progressive-failure analysis, FSDT/Timoshenko beams, and
 Kirchhoff and Mindlin plate FE.
 
 > Each data plot in this README is reproduced verbatim by running one short,
-> self-contained Python script — nothing is hand-drawn or hand-tuned.
+> self-contained Python script — every figure and numerical result comes
+> directly from the code, without manual adjustment.
 
 ## Highlights
 
 1. **Textbook ↔ code parallelism is exact.** Every worked example in the CLT
    chapter has a Python twin in `worked_examples/`. The numerical output and
-   the figures in the book are the printed and plotted output of these
-   scripts; nothing is hand-drawn or hand-tuned. Variable names mirror the
-   notation used in the chapter ($\bar Q$, $A$, $B$, $D$, $\varepsilon^0$,
-   $\kappa$, $S_f$).
+   the figures in the book are produced directly by these scripts, without
+   manual adjustment. Variable names mirror the notation used in the chapter
+   ($\bar Q$, $A$, $B$, $D$, $\varepsilon^0$, $\kappa$, $S_f$).
 2. **Code is designed for students and prioritizes clarity.** One concept
    per function, one function per file, descriptive names, no clever
    abstractions. The reader can trace any printed number to a single
