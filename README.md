@@ -27,9 +27,10 @@ Kirchhoff and Mindlin plate FE.
    scripts; nothing is hand-drawn or hand-tuned. Variable names mirror the
    notation used in the chapter ($\bar Q$, $A$, $B$, $D$, $\varepsilon^0$,
    $\kappa$, $S_f$).
-2. **Code prioritizes clarity over performance.** One concept per function,
-   one function per file, descriptive names, no clever abstractions. The
-   reader can trace any printed number to a single short function.
+2. **Code is designed for students and prioritizes clarity.** One concept
+   per function, one function per file, descriptive names, no clever
+   abstractions. The reader can trace any printed number to a single
+   short function.
 3. **Three dependencies, one-command install.** The toolkit depends
    only on `numpy`, `matplotlib`, and `pyyaml`; install via
    `pip install -r requirements.txt` and run any script.
