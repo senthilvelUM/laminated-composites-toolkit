@@ -1,4 +1,4 @@
-"""Helper to print a 2D matrix (Matlab-style)."""
+"""Helper to print a 2D matrix."""
 
 import numpy as np
 
@@ -6,9 +6,8 @@ import numpy as np
 def print_matrix(M, *, label=None, precision=3, width=10):
     """Print a 2D numerical matrix, one row per line.
 
-    Mirrors the Matlab disp() style for 2D matrices. Each value is
-    right-aligned in a fixed-width field with a fixed number of
-    decimal places.
+    Each value is right-aligned in a fixed-width field with a fixed
+    number of decimal places.
 
     Parameters
     ----------

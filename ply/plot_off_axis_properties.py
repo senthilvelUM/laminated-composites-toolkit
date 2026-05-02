@@ -105,4 +105,7 @@ def plot_off_axis_properties(ply):
                        linewidth=PLOT_SETTINGS["axes_line_width"])
             ax.grid(True, alpha=PLOT_SETTINGS["grid_alpha"])
         fig.tight_layout()
-        plt.show()
+        # Note: do NOT call plt.show() here. The runner calls show_figures()
+        # (a backend-aware helper) at the end. Calling plt.show() inside a
+        # library function emits a UserWarning on headless/Agg backends and
+        # is also redundant with the runner-level show_figures() call.

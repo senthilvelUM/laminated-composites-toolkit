@@ -1,4 +1,4 @@
-"""Helper to print a 1D array as a column (Matlab-style)."""
+"""Helper to print a 1D array as a column."""
 
 import numpy as np
 
@@ -6,8 +6,9 @@ import numpy as np
 def print_column(a, *, label=None, precision=3, width=10):
     """Print a numerical array as a column, one element per line.
 
-    Mirrors the Matlab disp() style for column arrays. Accepts a
-    1D array, a 2D column array, or any iterable of scalars.
+    Right-aligns each value in a fixed-width field with a fixed number
+    of decimal places. Accepts a 1D array, a 2D column array, or any
+    iterable of scalars.
 
     Parameters
     ----------
