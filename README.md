@@ -153,6 +153,11 @@ The chapter explains *why* the strain is continuous and the stress is
 not; the script is a 100-line Python file that *demonstrates* it. The
 two are intended to be read side by side.
 
+*After this example, the reader will understand why strain is linear and
+continuous through the thickness while stress jumps at every ply
+interface, and why off-axis plies introduce coupling between normal and
+shear responses.*
+
 ### Example 3.3 — Stacking-sequence design of a thin-walled tube
 
 A composite tube of radius $R$ and wall thickness $H$ is loaded by an
@@ -179,13 +184,23 @@ This single plot motivates the entire stacking-sequence-optimization
 chapter that follows: continuous design space → discrete design space
 → combinatorial search.
 
+*After this example, the reader will understand how a continuous angle
+sweep locates the optimal stacking, why restricting to a discrete angle
+set matters, and why the intuitive 45° choice is suboptimal under
+combined axial and torsional loading.*
+
 ## Optimization: brute force vs genetic algorithm, side by side
 
 The optimization chapter pairs two runners that solve the **same**
-problem — maximize $\min S_f$ over a discrete angle set — at two
-problem sizes. The pedagogical point is direct: brute force gives the
-ground truth where it is feasible, and a small integer-coded GA matches
-it at low $N$ and survives at high $N$.
+problem — find the stacking sequence that maximizes the minimum
+safety factor — at two problem sizes. For a small number of plies,
+brute force can check every possible stacking and is guaranteed to
+find the best one. As the number of plies grows, the count of
+possible stackings explodes and brute force becomes infeasible; a
+genetic algorithm finds the best (or near-best) stacking by evaluating
+only a tiny fraction of the design space. The two runners agree on the
+small problem (where the answer is known) and the genetic algorithm
+keeps working on the large problem (where brute force cannot run).
 
 ### Brute force at $N = 4$ (20,736 stackings, ~3 s)
 
