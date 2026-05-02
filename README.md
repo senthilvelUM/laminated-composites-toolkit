@@ -27,7 +27,7 @@ Kirchhoff and Mindlin plate FE.
    the figures in the book are produced directly by these scripts, without
    manual adjustment. Variable names mirror the notation used in the chapter
    ($\bar Q$, $A$, $B$, $D$, $\varepsilon^0$, $\kappa$, $S_f$).
-2. **Code is designed for students and prioritizes clarity.** One concept
+2. **Code is designed for learning and prioritizes clarity.** One concept
    per function, one function per file, descriptive names, no clever
    abstractions. The reader can trace any printed number to a single
    short function.
