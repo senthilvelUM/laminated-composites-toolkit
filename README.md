@@ -155,7 +155,7 @@ $[\theta/-\theta]_S$ laminate seeing combined in-plane resultants
 $N_x$ (from $P$) and $N_{xy}$ (from $T$); the design problem is to
 choose $\theta$ that maximizes the first-ply Tsai–Wu safety factor.
 
-<img src="docs/clt_tube_schematic.png" alt="Composite tube under combined axial load and torque, with the laminate detail showing the off-axis angle and in-plane stress resultants" width="70%" />
+<img src="docs/clt_tube_schematic.png" alt="Composite tube under combined axial load and torque, with the laminate detail showing the off-axis angle and in-plane stress resultants" width="55%" />
 
 The figure below sweeps $\theta$ continuously over $[0°, 90°]$ and
 locates the continuous optimum at $\theta \approx 26°$ (green star).
