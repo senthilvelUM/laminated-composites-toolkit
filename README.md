@@ -14,7 +14,7 @@ first finite-element example). The full toolkit that ships with the complete
 book also covers progressive-failure analysis, FSDT/Timoshenko beams, and
 Kirchhoff and Mindlin plate FE.
 
-> Each plot in this README is reproduced verbatim by running one short,
+> Each data plot in this README is reproduced verbatim by running one short,
 > self-contained Python script — nothing is hand-drawn or hand-tuned.
 
 ## Highlights
@@ -239,7 +239,7 @@ the chapters not included here.
 ## Repository layout
 
 ```
-python_toolkit_intro/
+laminated-composites-toolkit/
 ├── README.md                                       ← you are here
 ├── requirements.txt                                ← numpy, matplotlib, pyyaml
 │
