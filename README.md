@@ -304,7 +304,9 @@ laminated-composites-toolkit/
   `plot_through_thickness_variations`, and the optimization evaluators.
   The plot axis labels track the choice.
 
-## Materials shipped
+## Material library
+
+The toolkit ships with a small library of YAML material files covering the composite classes used in the textbook's worked examples:
 
 - `unidirectional_carbon_epoxy` (IM7/8552 properties)
 - `unidirectional_glass_epoxy`
@@ -312,9 +314,9 @@ laminated-composites-toolkit/
 - `fabric_glass_epoxy`
 - `foam_core` (PMI foam, used in sandwich-panel runners in the full toolkit)
 
-Material files live in `materials/` as YAML with a fixed schema; SI
-units throughout. Adding a new material is a single new YAML file with
-the same fields.
+Each material lives in `materials/` as a YAML file with a fixed schema
+and SI units throughout. Adding a new material is a single new YAML file
+with the same fields.
 
 ## Beyond this package
 
