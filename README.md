@@ -1,11 +1,11 @@
-# Companion Python Toolkit — *Analysis of Laminated Composite Structures: Modeling, Simulation, and Optimization*
+# Companion Python Toolkit — *Laminated Composite Structures: Modeling, Simulation, and Optimization*
 
 ### Senthil S. Vel &nbsp;·&nbsp; Serge R. Maalouf
 
 *For graduate students in mechanical and aerospace engineering, instructors teaching composite structures, and researchers seeking transparent reference implementations of laminate analysis and design.*
 
-This repository is the Python companion to the textbook *Analysis of
-Laminated Composite Structures: Modeling, Simulation, and Optimization*.
+This repository is the Python companion to the textbook *Laminated
+Composite Structures: Modeling, Simulation, and Optimization*.
 It is intended to be read alongside the text
 so that a reader can move freely between a derivation in the chapter and the
 matching code that reproduces every numerical value, table, and figure.
