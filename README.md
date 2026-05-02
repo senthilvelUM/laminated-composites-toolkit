@@ -76,7 +76,9 @@ exercises the full diagram — adding the $[ABD]$ assembly, the $\{N, M\}$
 load resultants, mid-surface strains and curvatures, through-thickness
 stresses, and the first-ply safety factor.
 
-<img src="docs/clt_concept_map.png" alt="CLT analysis pipeline: mid-surface kinematics, strains and stresses in global and material coordinates, [ABD] resultants, safety factor" width="100%" />
+<p align="center">
+  <img src="docs/clt_concept_map.png" alt="CLT analysis pipeline: mid-surface kinematics, strains and stresses in global and material coordinates, [ABD] resultants, safety factor" width="100%" />
+</p>
 
 ### `run_ply.py` — single-ply mechanics
 
@@ -89,7 +91,9 @@ $(1, 2)$ frames. The script closes with a Tsai–Wu safety-factor
 evaluation at the applied stress state and a four-panel sweep of the
 engineering moduli over $\theta \in [-90°, 90°]$:
 
-<img src="docs/run_ply_off_axis_properties.png" alt="Off-axis engineering properties" width="90%" />
+<p align="center">
+  <img src="docs/run_ply_off_axis_properties.png" alt="Off-axis engineering properties" width="90%" />
+</p>
 
 The four panels make the off-axis transformation machinery tangible at a
 glance: $E_x(\theta)$ and $E_y(\theta)$ peak when the fibers align with
@@ -117,7 +121,9 @@ ply orientation changes. The outer $0°$ plies carry stresses an order
 of magnitude larger than the inner $90°$ plies — the chapter explains
 why, and this single plot makes it visible.
 
-<img src="docs/run_laminate_sigma_x_through_thickness.png" alt="Stress through the thickness of a [0/90/90/0] laminate" width="60%" />
+<p align="center">
+  <img src="docs/run_laminate_sigma_x_through_thickness.png" alt="Stress through the thickness of a [0/90/90/0] laminate" width="60%" />
+</p>
 
 The runner also locates $S_f^{\min}$ and identifies the dominant failure
 mode at the critical $z$. A single top-of-file toggle
@@ -155,7 +161,9 @@ $[\theta/-\theta]_S$ laminate seeing combined in-plane resultants
 $N_x$ (from $P$) and $N_{xy}$ (from $T$); the design problem is to
 choose $\theta$ that maximizes the first-ply Tsai–Wu safety factor.
 
-<img src="docs/clt_tube_schematic.png" alt="Composite tube under combined axial load and torque, with the laminate detail showing the off-axis angle and in-plane stress resultants" width="55%" />
+<p align="center">
+  <img src="docs/clt_tube_schematic.png" alt="Composite tube under combined axial load and torque, with the laminate detail showing the off-axis angle and in-plane stress resultants" width="55%" />
+</p>
 
 The figure below sweeps $\theta$ continuously over $[0°, 90°]$ and
 locates the continuous optimum at $\theta \approx 26°$ (green star).
@@ -163,7 +171,9 @@ Four candidate discrete angles are overlaid (orange dots); only
 $\theta = 15°$ and $\theta = 30°$ are usable, and only $\theta = 30°$
 comes within 10% of the continuous optimum.
 
-<img src="docs/clt_example_3_tube_Sf_vs_angle.png" alt="Sf vs theta for the tube design" width="80%" />
+<p align="center">
+  <img src="docs/clt_example_3_tube_Sf_vs_angle.png" alt="Sf vs theta for the tube design" width="80%" />
+</p>
 
 This single plot motivates the entire stacking-sequence-optimization
 chapter that follows: continuous design space → discrete design space
@@ -184,7 +194,9 @@ the histogram below is the resulting distribution of $\min S_f$ values.
 Almost all stackings are unsafe ($S_f < 1$); the global optimum is the
 single red line at $S_f = 1.49$.
 
-<img src="docs/run_optimization_brute_force_Sf_histogram.png" alt="Sf histogram from brute force" width="70%" />
+<p align="center">
+  <img src="docs/run_optimization_brute_force_Sf_histogram.png" alt="Sf histogram from brute force" width="70%" />
+</p>
 
 ### Integer-coded GA at $N = 8$ ($4 \times 10^8$ stackings, < 1 s)
 
@@ -195,7 +207,9 @@ convergence curve below shows the best-of-generation safety factor (red)
 climbing in clear discrete jumps as the population discovers better
 basins, alongside the population-mean (blue):
 
-<img src="docs/run_optimization_GA_convergence.png" alt="GA convergence" width="70%" />
+<p align="center">
+  <img src="docs/run_optimization_GA_convergence.png" alt="GA convergence" width="70%" />
+</p>
 
 The GA hyperparameters (`pop_size`, `crossover_rate`, `mutation_rate`,
 `tournament_k`, `n_elite`, `seed`) are exposed at the top of the runner,
@@ -214,7 +228,9 @@ pattern — mesh → BCs → loads → assemble $[K]$ → solve $[K]\{D\} = \{F\
 → post-process — and then performs through-thickness CLT analysis at the
 critical section to locate $S_f^{\min}$ and the dominant failure mode.
 
-<img src="docs/run_beam_fe_deflection.png" alt="Beam deflection under point load" width="70%" />
+<p align="center">
+  <img src="docs/run_beam_fe_deflection.png" alt="Beam deflection under point load" width="70%" />
+</p>
 
 This is the same pattern, at the same level of detail, that the full
 toolkit reuses for FSDT beams and for Kirchhoff and Mindlin plates in
