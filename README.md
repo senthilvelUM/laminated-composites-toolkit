@@ -27,14 +27,13 @@ Kirchhoff and Mindlin plate FE.
    scripts; nothing is hand-drawn or hand-tuned. Variable names mirror the
    notation used in the chapter ($\bar Q$, $A$, $B$, $D$, $\varepsilon^0$,
    $\kappa$, $S_f$).
-2. **Code is written for graduate students, not for production.** One concept
-   per function, one function per file, descriptive names, no clever
-   abstractions. The reader can trace any printed number to a single
-   short function.
+2. **Code prioritizes clarity over performance.** One concept per function,
+   one function per file, descriptive names, no clever abstractions. The
+   reader can trace any printed number to a single short function.
 3. **Three dependencies, one-command install.** The toolkit depends
    only on `numpy`, `matplotlib`, and `pyyaml`; install via
    `pip install -r requirements.txt` and run any script.
-4. **Pedagogical toggles are first-class.** A failure-criterion switch
+4. **Toggles designed for experimentation.** A failure-criterion switch
    (`"TsaiWu" | "MaxStress" | "Hashin"`) is exposed at the top of every
    laminate-level runner and threaded through the entire pipeline, so the
    student can re-run a worked example under a different criterion in one
