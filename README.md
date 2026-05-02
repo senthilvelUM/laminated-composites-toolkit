@@ -57,9 +57,9 @@ python3 run_laminated_beam_fe_static.py                     # 2-DOF EB beam FE
 python3 run_stacking_optimization_brute_force.py            # global optimum (small N)
 python3 run_stacking_optimization_genetic_algorithm.py      # GA at N where brute force is hopeless
 
-python3 worked_examples/CLT_Example_1.py                    # CLT chapter Example 3.1
-python3 worked_examples/CLT_Example_2.py                    # CLT chapter Example 3.2
-python3 worked_examples/CLT_Example_3.py                    # CLT chapter Example 3.3
+python3 worked_examples/CLT_Example_1.py                    # CLT chapter Example 4.1
+python3 worked_examples/CLT_Example_2.py                    # CLT chapter Example 4.2
+python3 worked_examples/CLT_Example_3.py                    # CLT chapter Example 4.3
 ```
 
 Every runner saves its complete printed transcript to
@@ -143,7 +143,7 @@ The three worked examples in the CLT chapter are self-contained Python
 scripts under `worked_examples/`. They use only the public API of the
 `ply/` and `laminate/` packages — exactly what the chapter teaches.
 
-### Example 3.1 — Strain and stress through the thickness
+### Example 4.1 — Strain and stress through the thickness
 
 A `[45/0/-45]` IM7/8552 laminate is driven by prescribed mid-surface
 strain and curvature. The strain field is linear and continuous through
@@ -164,7 +164,7 @@ continuous through the thickness while stress jumps at every ply
 interface, and why off-axis plies introduce coupling between normal and
 shear responses.*
 
-### Example 3.3 — Stacking-sequence design of a thin-walled tube
+### Example 4.3 — Stacking-sequence design of a thin-walled tube
 
 A composite tube of radius $R$ and wall thickness $H$ is loaded by an
 axial force $P$ and a torque $T$. Unrolled, the wall is a
