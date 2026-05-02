@@ -48,6 +48,8 @@ Kirchhoff and Mindlin plate FE.
 
 ## Quick start
 
+Clone the repository, or download a ZIP from the GitHub page (green **Code** button → **Download ZIP** → unzip). Then, in the project folder:
+
 ```bash
 pip install -r requirements.txt   # numpy, matplotlib, pyyaml
 
