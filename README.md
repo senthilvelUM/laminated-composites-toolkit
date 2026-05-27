@@ -300,7 +300,7 @@ laminated-composites-toolkit/
   is exposed at the top of every laminate-level runner and dispatched
   through `evaluate_strains_stresses_Sf`, `find_min_safety_factor`,
   `plot_through_thickness_variations`, and the optimization evaluators.
-  The plot axis labels track the choice.
+  The plot axis labels track the choice..
 
 ## Material library
 
