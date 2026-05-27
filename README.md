@@ -38,13 +38,13 @@ Kirchhoff and Mindlin plate FE.
 3. **Three dependencies, one-command install.** The toolkit depends
    only on `numpy`, `matplotlib`, and `pyyaml`; install via
    `pip install -r requirements.txt` and run any script.
-4. **Toggles designed for experimentation.** A failure-criterion switch
-   (`"TsaiWu" | "MaxStress" | "Hashin"`) is exposed at the top of every
-   laminate-level runner and threaded through the entire pipeline, so the
-   student can re-run a worked example under a different criterion in one
-   keystroke. The optimization runner exposes its GA hyperparameters with
-   inline literature ranges, so students can vary the values and see the
-   effect on the convergence curve.
+4. **Toggles designed for experimentation.** Every laminate-level runner
+   has a failure-criterion switch (`"TsaiWu" | "MaxStress" | "Hashin"`) at
+   the top of the file. Changing it re-runs the entire through-thickness
+   analysis under the chosen criterion in one keystroke. The GA runner
+   lists each parameter at the top of the file with its typical range as
+   a comment, so students can change a value and see the effect on the
+   convergence curve.
 
 ## Quick start
 
@@ -89,13 +89,12 @@ through-thickness stresses, and the first-ply safety factor.
 
 ### `run_ply.py` — single-ply mechanics
 
-A single IM7/8552 ply at $\theta = 30°$ and 0.2 mm thickness is built,
-its full set of derived quantities is computed and printed
-($\bar Q$, $\bar S$, transformation matrices $T_\sigma$ and
-$T_\varepsilon$, off-axis engineering moduli), and a representative
-applied stress is transformed between the laminate $(x, y)$ and material
-$(1, 2)$ frames. The script closes with a Tsai–Wu safety-factor
-evaluation at the applied stress state and a four-panel sweep of the
+The script builds a single IM7/8552 ply at $\theta = 30°$ and 0.2 mm
+thickness and prints its derived quantities ($\bar Q$, $\bar S$,
+transformation matrices $T_\sigma$ and $T_\varepsilon$, off-axis
+engineering moduli). It then applies a representative stress, transforms
+it between the laminate $(x, y)$ and material $(1, 2)$ frames, evaluates
+the Tsai–Wu safety factor, and finishes with a four-panel sweep of the
 engineering moduli over $\theta \in [-90°, 90°]$:
 
 <p align="center">
@@ -112,13 +111,12 @@ ply-level functions; the rest of the package builds on it.
 
 ### `run_laminate.py` — multi-ply laminate analysis
 
-A four-ply $[0/90/90/0]$ cross-ply IM7/8552 laminate is built, its
-$[A]$, $[B]$, $[D]$ and engineering moduli are reported, and it is
-loaded with a small bending moment $M_x$. The runner solves the CLT
-constitutive system for the mid-surface strains and curvatures, then
-walks through the thickness reporting strain, stress in the laminate
-and material frames, and the Tsai–Wu safety factor at every ply
-interface and mid-ply.
+The script builds a four-ply $[0/90/90/0]$ cross-ply IM7/8552 laminate,
+prints its $[A]$, $[B]$, $[D]$ matrices and engineering moduli, and
+loads it with a small bending moment $M_x$. It then solves the CLT
+constitutive system for the mid-surface strains and curvatures, and
+reports strain, stress in the laminate and material frames, and the
+Tsai–Wu safety factor at every ply interface and mid-ply.
 
 The figure below shows $\sigma_x(z)$ for this laminate. Strain (not
 shown) is linear and continuous through the thickness; stress is
@@ -232,24 +230,17 @@ the population mean (blue):
   <img src="docs/run_optimization_GA_convergence.png" alt="GA convergence" width="70%" />
 </p>
 
-The GA hyperparameters (`pop_size`, `crossover_rate`, `mutation_rate`,
-`tournament_k`, `n_elite`, `seed`) are exposed at the top of the runner,
-each annotated inline with its literature-typical range. A student can
-flip a single value and immediately see the effect on the convergence
-curve.
-
 ## A first finite-element example
 
 `run_laminated_beam_fe_static.py` is the simplest FE example in the
 toolkit. It introduces the FE pattern that the full toolkit extends to
 FSDT beams and to Kirchhoff and Mindlin plates (static and vibration).
-The example uses a symmetric `[45/0/0/45]` laminate, two Euler–Bernoulli
-(CLT) beam
-elements, two DOFs per node ($v$, $\phi$), cubic-Hermite shape
-functions, fixed–fixed boundary conditions, and a concentrated
-mid-span load. The runner walks through the canonical FE pattern —
-mesh → BCs → loads → assemble $[K]$ → solve $[K]\{D\} = \{F\}$ →
-post-process — and then performs through-thickness CLT analysis at
+The example uses a symmetric `[45/0/0/45]` laminate, two
+Euler–Bernoulli (CLT) beam elements, two DOFs per node ($v$, $\phi$),
+cubic-Hermite shape functions, fixed–fixed boundary conditions, and a
+concentrated mid-span load. The runner walks through the standard FE
+pattern — mesh → BCs → loads → assemble $[K]$ → solve $[K]\{D\} = \{F\}$
+→ post-process — and then performs through-thickness CLT analysis at
 the critical section to locate $S_f^{\min}$ and the dominant failure
 mode.
 
@@ -297,8 +288,8 @@ laminated-composites-toolkit/
 - **Variable names mirror the chapter notation.** `E1`, `nu12`, `G12`,
   `F1t`, `F1c`, …, `Q`, `QBar`, `A`, `B`, `D`, `eps0`, `kappa`, `Sf`.
 - **Failure-criterion toggle** (`"TsaiWu"` | `"MaxStress"` | `"Hashin"`)
-  is exposed at the top of every laminate-level runner and dispatched
-  through `evaluate_strains_stresses_Sf`, `find_min_safety_factor`,
+  is set at the top of every laminate-level runner and used by
+  `evaluate_strains_stresses_Sf`, `find_min_safety_factor`,
   `plot_through_thickness_variations`, and the optimization evaluators.
   The plot axis labels track the choice.
 
