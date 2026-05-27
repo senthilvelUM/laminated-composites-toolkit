@@ -10,9 +10,9 @@ It is intended to be read alongside the text
 so that a reader can move freely between a derivation in the chapter and the
 matching code that reproduces every numerical value, table, and figure.
 
-Together, the textbook and the toolkit close the loop from theory to
-implementation to design — readers derive the governing equations,
-then compute, visualize, and optimize laminated structures.
+The textbook contains the derivations; the toolkit performs the
+computations and produces the figures, tables, and design results that
+appear in the book.
 
 The package focuses on Part I of the book (lamina mechanics, classical
 lamination theory, failure analysis, stacking-sequence optimization, and a
@@ -43,8 +43,8 @@ Kirchhoff and Mindlin plate FE.
    laminate-level runner and threaded through the entire pipeline, so the
    student can re-run a worked example under a different criterion in one
    keystroke. The optimization runner exposes its GA hyperparameters with
-   inline literature ranges, turning the script into a controlled experiment
-   the student can vary.
+   inline literature ranges, so students can vary the values and see the
+   effect on the convergence curve.
 
 ## Quick start
 
@@ -70,19 +70,18 @@ Every runner saves its complete printed transcript to
 
 ## The main runners
 
-Two runners sit at the center of the package and are the entry points
-most readers should start with. They exercise the `ply/` and `laminate/`
-packages end-to-end on small, transparent inputs and print every
-intermediate quantity (transformation matrices, $[A]$, $[B]$, $[D]$,
+The two main runners for new readers are `run_ply.py` and `run_laminate.py`.
+They use the `ply/` and `laminate/` packages on small inputs and print
+every intermediate quantity (transformation matrices, $[A]$, $[B]$, $[D]$,
 through-thickness strains, stresses, safety factors).
 
-The concept map below (reproduced from the CLT chapter) is the road
-the two runners walk. `run_ply.py` exercises the right half — single-ply
-mechanics, $[Q]$, $[\bar Q]$, $T_\sigma$, $T_\varepsilon$, and
-transformations between material and global coordinates. `run_laminate.py`
-exercises the full diagram — adding the $[ABD]$ assembly, the $\{N, M\}$
-load resultants, mid-surface strains and curvatures, through-thickness
-stresses, and the first-ply safety factor.
+The concept map below (reproduced from the CLT chapter) shows the
+analysis pipeline these two runners cover. `run_ply.py` covers the right
+half: single-ply mechanics, $[Q]$, $[\bar Q]$, $T_\sigma$, $T_\varepsilon$,
+and transformations between material and global coordinates.
+`run_laminate.py` covers the full diagram, adding the $[ABD]$ assembly,
+the $\{N, M\}$ load resultants, mid-surface strains and curvatures,
+through-thickness stresses, and the first-ply safety factor.
 
 <p align="center">
   <img src="docs/clt_concept_map.png" alt="CLT analysis pipeline: mid-surface kinematics, strains and stresses in global and material coordinates, [ABD] resultants, safety factor" width="100%" />
@@ -103,14 +102,13 @@ engineering moduli over $\theta \in [-90°, 90°]$:
   <img src="docs/run_ply_off_axis_properties.png" alt="Off-axis engineering properties" width="90%" />
 </p>
 
-The four panels make the off-axis transformation machinery tangible at a
-glance: $E_x(\theta)$ and $E_y(\theta)$ peak when the fibers align with
+The four panels show how the engineering moduli depend on the fiber
+angle: $E_x(\theta)$ and $E_y(\theta)$ peak when the fibers align with
 the loading direction, $G_{xy}(\theta)$ peaks at $\pm 45°$, and
 $\nu_{xy}(\theta)$ exhibits the classic non-monotonic behavior with
 values that can exceed the isotropic upper bound of 0.5 between
-$0°$ and $\sim 30°$. The script is the simplest possible thing that
-fully exercises the ply-level API; everything later in the package
-builds on it.
+$0°$ and $\sim 30°$. The script is the simplest entry point to the
+ply-level functions; the rest of the package builds on it.
 
 ### `run_laminate.py` — multi-ply laminate analysis
 
@@ -188,9 +186,9 @@ comes within 10% of the continuous optimum.
   <img src="docs/clt_example_3_tube_Sf_vs_angle.png" alt="Sf vs theta for the tube design" width="80%" />
 </p>
 
-This single plot motivates the entire stacking-sequence-optimization
-chapter that follows: continuous design space → discrete design space
-→ combinatorial search.
+This plot sets up the stacking-sequence-optimization chapter that
+follows: continuous design space → discrete design space → combinatorial
+search.
 
 *After this example, the reader will understand how a continuous angle
 sweep locates the optimal stacking, why restricting to a discrete angle
@@ -227,8 +225,8 @@ At $N = 8$ the design space contains $12^8 \approx 4.3 \times 10^8$
 stackings — well past brute force. The GA evaluates 6,030 of them
 (0.0014% of the design space) and converges in under a second. The
 convergence curve below shows the best-of-generation safety factor (red)
-climbing in clear discrete jumps as the population discovers better
-basins, alongside the population-mean (blue):
+climbing in discrete jumps as the GA finds better stackings, alongside
+the population mean (blue):
 
 <p align="center">
   <img src="docs/run_optimization_GA_convergence.png" alt="GA convergence" width="70%" />
@@ -242,11 +240,11 @@ curve.
 
 ## A first finite-element example
 
-`run_laminated_beam_fe_static.py` is the gentlest entry into the FE
-chapters of the book — a deliberate single-runner introduction to the
-same FE pattern that the full toolkit extends to FSDT beams and to
-Kirchhoff and Mindlin plates (static and vibration). The example uses
-a symmetric `[45/0/0/45]` laminate, two Euler–Bernoulli (CLT) beam
+`run_laminated_beam_fe_static.py` is the simplest FE example in the
+toolkit. It introduces the FE pattern that the full toolkit extends to
+FSDT beams and to Kirchhoff and Mindlin plates (static and vibration).
+The example uses a symmetric `[45/0/0/45]` laminate, two Euler–Bernoulli
+(CLT) beam
 elements, two DOFs per node ($v$, $\phi$), cubic-Hermite shape
 functions, fixed–fixed boundary conditions, and a concentrated
 mid-span load. The runner walks through the canonical FE pattern —
