@@ -1,4 +1,4 @@
-# Companion Python Toolkit — *Laminated Composite Structures: Modeling, Simulation, and Optimization*
+# Companion Python Toolkit for *Laminated Composite Structures: Modeling, Simulation, and Optimization*
 
 ### Senthil S. Vel &nbsp;·&nbsp; Serge R. Maalouf
 
@@ -10,7 +10,7 @@ It is intended to be read alongside the text
 so that a reader can move freely between a derivation in the chapter and the
 matching code that reproduces every numerical value, table, and figure.
 
-The textbook contains the derivations; the toolkit performs the
+The textbook contains the derivations. The toolkit performs the
 computations and produces the figures, tables, and design results that
 appear in the book.
 
@@ -21,7 +21,7 @@ book also covers progressive-failure analysis, FSDT/Timoshenko beams, and
 Kirchhoff and Mindlin plate FE.
 
 > Each data plot in this README is reproduced verbatim by running one short,
-> self-contained Python script — every figure and numerical result comes
+> self-contained Python script. Every figure and numerical result comes
 > directly from the code, without manual adjustment.
 
 ## Highlights
@@ -36,7 +36,7 @@ Kirchhoff and Mindlin plate FE.
    abstractions. The reader can trace any printed number to a single
    short function.
 3. **Three dependencies, one-command install.** The toolkit depends
-   only on `numpy`, `matplotlib`, and `pyyaml`; install via
+   only on `numpy`, `matplotlib`, and `pyyaml`. Install via
    `pip install -r requirements.txt` and run any script.
 4. **Toggles designed for experimentation.** Every laminate-level runner
    has a failure-criterion switch (`"TsaiWu" | "MaxStress" | "Hashin"`) at
@@ -66,7 +66,7 @@ python3 worked_examples/CLT_Example_3.py                    # CLT chapter Exampl
 
 Every runner saves its complete printed transcript to
 `results/<runner_name>/output.md` and its figures alongside it as
-`fig01.png`, `fig02.png`, … One folder per analysis; nothing is mixed.
+`fig01.png`, `fig02.png`, … One folder per analysis. Nothing is mixed.
 
 ## The main runners
 
@@ -87,7 +87,7 @@ through-thickness stresses, and the first-ply safety factor.
   <img src="docs/clt_concept_map.png" alt="CLT analysis pipeline: mid-surface kinematics, strains and stresses in global and material coordinates, [ABD] resultants, safety factor" width="100%" />
 </p>
 
-### `run_ply.py` — single-ply mechanics
+### `run_ply.py`: single-ply mechanics
 
 The script builds a single IM7/8552 ply at $\theta = 30°$ and 0.2 mm
 thickness and prints its derived quantities ($\bar Q$, $\bar S$,
@@ -107,9 +107,9 @@ the loading direction, $G_{xy}(\theta)$ peaks at $\pm 45°$, and
 $\nu_{xy}(\theta)$ exhibits the classic non-monotonic behavior with
 values that can exceed the isotropic upper bound of 0.5 between
 $0°$ and $\sim 30°$. The script is the simplest entry point to the
-ply-level functions; the rest of the package builds on it.
+ply-level functions. The rest of the package builds on it.
 
-### `run_laminate.py` — multi-ply laminate analysis
+### `run_laminate.py`: multi-ply laminate analysis
 
 The script builds a four-ply $[0/90/90/0]$ cross-ply IM7/8552 laminate,
 prints its $[A]$, $[B]$, $[D]$ matrices and engineering moduli, and
@@ -119,10 +119,10 @@ reports strain, stress in the laminate and material frames, and the
 Tsai–Wu safety factor at every ply interface and mid-ply.
 
 The figure below shows $\sigma_x(z)$ for this laminate. Strain (not
-shown) is linear and continuous through the thickness; stress is
+shown) is linear and continuous through the thickness. Stress is
 **piecewise discontinuous**, with jumps at every interface where the
 ply orientation changes. The outer $0°$ plies carry stresses an order
-of magnitude larger than the inner $90°$ plies — the chapter explains
+of magnitude larger than the inner $90°$ plies. The chapter explains
 why, and this single plot makes it visible.
 
 <p align="center">
@@ -139,9 +139,9 @@ without further edits.
 
 The three worked examples in the CLT chapter are self-contained Python
 scripts under `worked_examples/`. They use only the public API of the
-`ply/` and `laminate/` packages — exactly what the chapter teaches.
+`ply/` and `laminate/` packages, exactly what the chapter teaches.
 
-### Example 4.1 — Strain and stress through the thickness
+### Example 4.1: Strain and stress through the thickness
 
 A `[45/0/-45]` IM7/8552 laminate is driven by prescribed mid-surface
 strain and curvature. The strain field is linear and continuous through
@@ -154,7 +154,7 @@ interface from the $\bar Q$ mismatch.
 | ![Strain through thickness](docs/clt_example_1_strain_through_thickness.png) | ![Stress through thickness](docs/clt_example_1_stress_through_thickness.png) |
 
 The chapter explains *why* the strain is continuous and the stress is
-not; the script is a 100-line Python file that *demonstrates* it. The
+not. The script is a 100-line Python file that *demonstrates* it. The
 two are intended to be read side by side.
 
 *After this example, the reader will understand why strain is linear and
@@ -162,12 +162,12 @@ continuous through the thickness while stress jumps at every ply
 interface, and why off-axis plies introduce coupling between normal and
 shear responses.*
 
-### Example 4.3 — Stacking-sequence design of a thin-walled tube
+### Example 4.3: Stacking-sequence design of a thin-walled tube
 
 A composite tube of radius $R$ and wall thickness $H$ is loaded by an
 axial force $P$ and a torque $T$. Unrolled, the wall is a
 $[\theta/-\theta]_S$ laminate seeing combined in-plane resultants
-$N_x$ (from $P$) and $N_{xy}$ (from $T$); the design problem is to
+$N_x$ (from $P$) and $N_{xy}$ (from $T$). The design problem is to
 choose $\theta$ that maximizes the first-ply Tsai–Wu safety factor.
 
 <p align="center">
@@ -176,7 +176,7 @@ choose $\theta$ that maximizes the first-ply Tsai–Wu safety factor.
 
 The figure below sweeps $\theta$ continuously over $[0°, 90°]$ and
 locates the continuous optimum at $\theta \approx 26°$ (green star).
-Four candidate discrete angles are overlaid (orange dots); only
+Four candidate discrete angles are overlaid (orange dots). Only
 $\theta = 15°$ and $\theta = 30°$ are usable, and only $\theta = 30°$
 comes within 10% of the continuous optimum.
 
@@ -196,11 +196,11 @@ combined axial and torsional loading.*
 ## Optimization: brute force vs genetic algorithm, side by side
 
 The optimization chapter pairs two runners that solve the **same**
-problem — find the stacking sequence that maximizes the minimum
-safety factor — at two problem sizes. For a small number of plies,
+problem (find the stacking sequence that maximizes the minimum
+safety factor) at two problem sizes. For a small number of plies,
 brute force can check every possible stacking and is guaranteed to
 find the best one. As the number of plies grows, the count of
-possible stackings explodes and brute force becomes infeasible; a
+possible stackings explodes and brute force becomes infeasible. A
 genetic algorithm finds the best (or near-best) stacking by evaluating
 only a tiny fraction of the design space. The two runners agree on the
 small problem (where the answer is known) and the genetic algorithm
@@ -208,9 +208,9 @@ keeps working on the large problem (where brute force cannot run).
 
 ### Brute force at $N = 4$ (20,736 stackings, ~3 s)
 
-Every sequence on the angle set $\{0, 15, ..., 165\}°$ is evaluated;
-the histogram below is the resulting distribution of $\min S_f$ values.
-Almost all stackings are unsafe ($S_f < 1$); the global optimum is the
+Every sequence on the angle set $\{0, 15, ..., 165\}°$ is evaluated.
+The histogram below is the resulting distribution of $\min S_f$ values.
+Almost all stackings are unsafe ($S_f < 1$). The global optimum is the
 single red line at $S_f = 1.49$.
 
 <p align="center">
@@ -220,7 +220,7 @@ single red line at $S_f = 1.49$.
 ### Integer-coded GA at $N = 8$ ($4 \times 10^8$ stackings, < 1 s)
 
 At $N = 8$ the design space contains $12^8 \approx 4.3 \times 10^8$
-stackings — well past brute force. The GA evaluates 6,030 of them
+stackings, well past brute force. The GA evaluates 6,030 of them
 (0.0014% of the design space) and converges in under a second. The
 convergence curve below shows the best-of-generation safety factor (red)
 climbing in discrete jumps as the GA finds better stackings, alongside
@@ -239,8 +239,8 @@ The example uses a symmetric `[45/0/0/45]` laminate, two
 Euler–Bernoulli (CLT) beam elements, two DOFs per node ($v$, $\phi$),
 cubic-Hermite shape functions, fixed–fixed boundary conditions, and a
 concentrated mid-span load. The runner walks through the standard FE
-pattern — mesh → BCs → loads → assemble $[K]$ → solve $[K]\{D\} = \{F\}$
-→ post-process — and then performs through-thickness CLT analysis at
+pattern (mesh → BCs → loads → assemble $[K]$ → solve $[K]\{D\} = \{F\}$
+→ post-process), and then performs through-thickness CLT analysis at
 the critical section to locate $S_f^{\min}$ and the dominant failure
 mode.
 
@@ -313,10 +313,10 @@ The full toolkit that accompanies the complete book additionally includes:
 
 - progressive-failure analysis (load- and displacement-controlled coupon,
   moment- and curvature-controlled beam) with total-ply-discount
-  cascade detection;
+  cascade detection.
 - FSDT / Timoshenko beam FE (static + vibration, including a sandwich
-  panel demonstration);
-- Kirchhoff / MZC plate FE (static + vibration);
+  panel demonstration).
+- Kirchhoff / MZC plate FE (static + vibration).
 - Mindlin / FSDT plate FE (static + vibration, with a clean
   shear-locking demonstration via the `shear_integration` toggle).
 
@@ -324,5 +324,5 @@ These modules follow the same conventions used here.
 
 ## License
 
-Released under the MIT License — see [LICENSE](LICENSE).
+Released under the MIT License. See [LICENSE](LICENSE).
 
